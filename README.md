@@ -7,5 +7,4 @@ This repository contains the starter code for many different projects. They are 
 * `csharp-prep` - Starter projects for each of the C# Prep assignments.
 * `prepare` - Starter projects for each of the preparation Learning Activities.
 * `prove` - Starter projects for each of the prove Developer projects.
-* `final` - Starter projects for final project.
-Natalia Iakovleva
+* `final` - Personal Finance Management Program is designed to help users track their income, expenses, and savings. Open-ended Project.
