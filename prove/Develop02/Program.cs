@@ -1,13 +1,13 @@
 using System;
 
-// Entry class to represent a journal entry
+
 class Entry
 {
     public string Prompt { get; set; }
     public string Response { get; set; }
     public string Date { get; set; }
 
-    //Entry class
+
     public Entry(string prompt, string response, string date)
     {
         Prompt = prompt;
@@ -15,7 +15,7 @@ class Entry
         Date = date;
     }
 
-    // ToString method
+  
     public override string ToString()
     {
         return $"{Date} - {Prompt}: {Response}";
@@ -24,14 +24,14 @@ class Entry
 
 class Program
 {
-    // Create a list to store the journal entries
+
     static List<Entry> journal = new List<Entry>();
 
     static void Main(string[] args)
     {
         bool running = true;
 
-        // The program menu
+       
         while (running)
         {
             Console.WriteLine("Please select one of the following choices:");
@@ -44,7 +44,7 @@ class Program
 
             string option = Console.ReadLine();
 
-            // Switch statement to handle menu options
+            
             switch (option)
             {
                 case "1":
@@ -69,25 +69,24 @@ class Program
         }
     }
 
-    // Write a new journal entry
+
     static void WriteNewEntry()
     {
-        // An array of prompts
+       
         string[] prompts = { "Favorite memory today", "Lesson learned today", "Gratitude moment", "Personal reflection", "Goal for tomorrow" };
         Random random = new Random();
         int index = random.Next(prompts.Length);
 
-        // Show a random prompt
+       
         Console.WriteLine(prompts[index]);
         string response = Console.ReadLine();
         string date = DateTime.Now.ToShortDateString();
 
-        // Create a new Entry object and add it to the journal
         Entry entry = new Entry(prompts[index], response, date);
         journal.Add(entry);
     }
 
-    //Display all journal entries
+
     static void DisplayJournal()
     {
         foreach (Entry entry in journal)
@@ -96,13 +95,12 @@ class Program
         }
     }
 
-    // Save the journal to a file
     static void SaveJournal()
     {
         Console.Write("Enter a filename to save: ");
         string filename = Console.ReadLine();
 
-        // Use StreamWriter to write entries to a file
+        
         using (StreamWriter writer = new StreamWriter(filename))
         {
             foreach (Entry entry in journal)
@@ -112,16 +110,15 @@ class Program
         }
     }
 
-    // Method to load the journal from a file
     static void LoadJournal()
     {
         Console.Write("Enter a filename to load: ");
         string filename = Console.ReadLine();
 
-        // Clear the current journal before loading new entries
+        
         journal.Clear();
 
-        // Read the file and create Entry objects for each line
+       
         string[] lines = File.ReadAllLines(filename);
         foreach (string line in lines)
         {
